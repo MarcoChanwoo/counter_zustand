@@ -2,7 +2,7 @@ import React from "react";
 import { useCounterStore } from "../store";
 
 const Counter = () => {
-  const { count, increment, reset } = useCounterStore();
+  const { count, increment, reset, setNumber } = useCounterStore();
   return (
     <div>
       <p>{count}</p>
