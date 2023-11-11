@@ -8,6 +8,7 @@ const Counter = () => {
       <p>{count}</p>
       <button onClick={increment}>one up</button>
       <button onClick={reset}>reset</button>
+      <button onClick={() => setNumber(3)}>3</button>
     </div>
   );
 };
