@@ -8,6 +8,8 @@ export const useTodoStore = create((set) => ({
         ...state.todos,
         {
           text: todoText,
+          id: getId(),
+          isCompleted: false,
         },
       ],
     })),
