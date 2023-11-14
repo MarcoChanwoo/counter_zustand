@@ -6,7 +6,13 @@ const TodoList = () => {
     <div>
       <h3>Todo App</h3>
       <form>
-        <input type="text" id="new-todo" name="newTodo" value={todoValue} />
+        <input
+          type="text"
+          id="new-todo"
+          name="newTodo"
+          value={todoValue}
+          onChange={(e) => setTodoValue(e.target.value)}
+        />
       </form>
     </div>
   );
