@@ -30,6 +30,7 @@ const TodoList = () => {
             >
               {todo.text}{" "}
             </span>
+            {!todo.isCompleted ? <button>😆</button> : null}
           </li>
         ))}
       </ul>
