@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useTodoStore } from "../store/useTodoStore";
 
 const TodoList = () => {
   const [todoValue, setTodoValue] = useState("");
+  const { todos, addTodo, deleteTodo, completeTodo } = useTodoStore();
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -18,6 +20,19 @@ const TodoList = () => {
         />
         <button type="submit">Add</button>
       </form>
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo.id}>
+            <span
+              style={{
+                textDecoration: todo.isCompleted ? "line-through" : "unset",
+              }}
+            >
+              {todo.text}{" "}
+            </span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
