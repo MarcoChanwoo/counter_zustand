@@ -8,7 +8,7 @@ const TodoList = () => {
   return (
     <div>
       <h3>Todo App</h3>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           id="new-todo"
@@ -16,7 +16,7 @@ const TodoList = () => {
           value={todoValue}
           onChange={(e) => setTodoValue(e.target.value)}
         />
-        <button>Add</button>
+        <button type="submit">Add</button>
       </form>
     </div>
   );
