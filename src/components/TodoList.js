@@ -2,6 +2,9 @@ import React, { useState } from "react";
 
 const TodoList = () => {
   const [todoValue, setTodoValue] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <div>
       <h3>Todo App</h3>
@@ -13,6 +16,7 @@ const TodoList = () => {
           value={todoValue}
           onChange={(e) => setTodoValue(e.target.value)}
         />
+        <button>Add</button>
       </form>
     </div>
   );
