@@ -6,6 +6,8 @@ const TodoList = () => {
   const { todos, addTodo, deleteTodo, completeTodo } = useTodoStore();
   const handleSubmit = (e) => {
     e.preventDefault();
+    addTodo(todoValue);
+    setTodoValue("");
   };
   return (
     <div>
@@ -30,7 +32,10 @@ const TodoList = () => {
             >
               {todo.text}{" "}
             </span>
-            {!todo.isCompleted ? <button>😆</button> : null}
+            {!todo.isCompleted ? (
+              <button onClick={() => completeTodo(todo.id)}>😆</button>
+            ) : null}
+            <button onClick={() => deleteTodo(todo.id)}>😇</button>
           </li>
         ))}
       </ul>

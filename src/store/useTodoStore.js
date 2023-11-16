@@ -23,9 +23,10 @@ export const useTodoStore = create((set) => ({
         if (todo.id === todoId) {
           return {
             ...todo,
-            isC: true,
+            isCompleted: true,
           };
         }
+        return todo;
       }),
     })),
 }));
