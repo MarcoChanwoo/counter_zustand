@@ -33,7 +33,7 @@ export const useTodoStore = create(
           }),
         })),
     }),
-    { name: "todo" }
+    { name: "todo", getStorage: () => sessionStorage }
   )
 );
 
