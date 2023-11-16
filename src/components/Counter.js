@@ -3,7 +3,9 @@ import { useCounterStore } from "../store/useCounterStore";
 
 const Counter = () => {
   const { count, increment, reset, setNumber } = useCounterStore();
-  const clear = () => {};
+  const clear = () => {
+    useCounterStore.persist.clearStorage();
+  };
   return (
     <div>
       <p>{count}</p>
