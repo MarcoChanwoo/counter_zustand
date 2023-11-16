@@ -30,16 +30,13 @@ let todoStore = (set) => ({
         return todo;
       }),
     })),
-})
+});
 
-todoStore=devtools(todoStore)
-
-export const useTodoStore = create(
-  persist(
-    ,
-    { name: "todo", getStorage: () => sessionStorage }
-  )
-);
+todoStore = devtools(todoStore);
+todoStore = persist(todoStore, {
+  name: "todo",
+  getStorage: () => sessionStorage,
+});
 
 let id = 0;
 function getId() {
