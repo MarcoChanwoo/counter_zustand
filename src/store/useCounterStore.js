@@ -7,3 +7,5 @@ let counterStore = (set) => ({
   reset: () => set({ count: 1 }),
   setNumber: (number) => set({ count: number }),
 });
+
+counterStore = devtools(counterStore);
