@@ -9,3 +9,4 @@ let counterStore = (set) => ({
 });
 
 counterStore = devtools(counterStore);
+counterStore = persist(counterStore, { name: "counter" });
