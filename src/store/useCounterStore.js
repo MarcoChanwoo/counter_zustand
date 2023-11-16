@@ -10,3 +10,5 @@ let counterStore = (set) => ({
 
 counterStore = devtools(counterStore);
 counterStore = persist(counterStore, { name: "counter" });
+
+export const useCounterStore = create(counterStore);
