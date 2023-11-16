@@ -38,6 +38,8 @@ todoStore = persist(todoStore, {
   getStorage: () => sessionStorage,
 });
 
+export const useTodoStore = create(todoStore);
+
 let id = 0;
 function getId() {
   return id++;
