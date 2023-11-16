@@ -1,38 +1,42 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { devtools, persist } from "zustand/middleware";
+
+let todoStore = (set) => ({
+  todos: [],
+  addTodo: (todoText) =>
+    set((state) => ({
+      todos: [
+        ...state.todos,
+        {
+          text: todoText,
+          id: getId(),
+          isCompleted: false,
+        },
+      ],
+    })),
+  deleteTodo: (todoId) =>
+    set((state) => ({
+      todos: state.todos.filter((todo) => todo.id !== todoId),
+    })),
+  completeTodo: (todoId) =>
+    set((state) => ({
+      todos: state.todos.map((todo) => {
+        if (todo.id === todoId) {
+          return {
+            ...todo,
+            isCompleted: true,
+          };
+        }
+        return todo;
+      }),
+    })),
+})
+
+todoStore=devtools(todoStore)
 
 export const useTodoStore = create(
   persist(
-    (set) => ({
-      todos: [],
-      addTodo: (todoText) =>
-        set((state) => ({
-          todos: [
-            ...state.todos,
-            {
-              text: todoText,
-              id: getId(),
-              isCompleted: false,
-            },
-          ],
-        })),
-      deleteTodo: (todoId) =>
-        set((state) => ({
-          todos: state.todos.filter((todo) => todo.id !== todoId),
-        })),
-      completeTodo: (todoId) =>
-        set((state) => ({
-          todos: state.todos.map((todo) => {
-            if (todo.id === todoId) {
-              return {
-                ...todo,
-                isCompleted: true,
-              };
-            }
-            return todo;
-          }),
-        })),
-    }),
+    ,
     { name: "todo", getStorage: () => sessionStorage }
   )
 );
