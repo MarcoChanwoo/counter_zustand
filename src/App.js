@@ -7,7 +7,9 @@ import { useUserStore } from "./store/useUserStore";
 
 function App() {
   const { fetch, user } = useUserStore();
-  useEffect(() => {}, []);
+  useEffect(() => {
+    fetch(1);
+  }, []);
 
   return (
     <div className="App">
