@@ -3,4 +3,4 @@ Zustand
 - Use Hooks
 - Persist Middleware(maintain data)
 - DevTools(redux)
-- async request
+- Async request
